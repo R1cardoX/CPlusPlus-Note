@@ -166,14 +166,46 @@ https://zh.cppreference.com/w/cpp/language/translation_phases
 
 ## 分类
 ### 条件包含
+编译器通过下面几个预处理指令有条件的包含一部分代码进入编译期
+
 #if、#ifdef、#ifndef、#else、#elif 和 #endif
 
-文本替换（#define 和 #undef 指令与 # 和 ## 运算符）。
+条件预处理块由 #if、#ifdef 或 #ifndef 指令开始，然后可选地包含任意多个 #elif 指令，接下来是最多一个可选的 #else 指令，并以 #endif 指令结束。嵌套的条件预处理块会被单独处理。
 
-错误指令 （#error）
+各个 #if、#elif、#else、#ifdef 和 #ifndef 指令所控制的代码块在第一个不属于内部嵌套的条件预处理块的 #elif、#else 或 #endif 指令处结束。
 
-源文件包含（#include 指令控制并以 __has_include 检查 (C++17 起)）。
+#if是检测后面参数是否为真，#ifdef 和 #ifndef 检查标识符是否被定义为宏名，如果最后求值为真，则编译其控制的代码块。此时后续的 #else 和 #elif 指令将被忽略。否则，如果所指定的条件求值为假，则跳过其所控制的代码块，然后处理后续的 #else 或 #elif 指令（如果存在）。前一种情况下，#else 指令所控制的代码块将会无条件地进行编译。后一种情况下，#elif 指令按照与 #if 指令相同的方式执行：即测试条件是否满足，并根据其结果决定编译或跳过其所控制的代码块，并在后一种情况下继续处理后续的 #elif 和 #else 指令。条件预处理块以 #endif 指令结束。
 
-实现定义的行为控制（由 #pragma 指令和 _Pragma 运算符 (C++11 起)控制）。
+```cpp
+#if 0
+    std::cout << "is not output" << std::endl;
+#endif
+#if 1
+    std::cout << "output" << std::endl;
+#endif
 
-文件名和行信息（#line）
+#define TEST_DEFINE
+#ifdef TEST_DEFINE
+    std::cout << "output" << std::endl;
+#endif
+#ifndef TEST_DEFINE
+    std::cout << "is not output" << std::endl;
+#endif
+```
+
+### 文本替换
+预处理器支持使用以下方法进行文本宏替换和仿函数文本宏替换。
+#define 和 #undef 指令与 # 和 ## 运算符
+
+
+### 错误指令 
+#error
+
+### 源文件包含
+#include 指令控制并以 __has_include 检查 (C++17 起)）
+
+### 实现定义的行为控制
+#pragma 指令和 _Pragma 运算符 (C++11 起)控制
+
+### 文件名和行信息
+#line
