@@ -14,10 +14,15 @@ C++这个名字是Rick Mascitti于1983年中所建议的，并于1983年12月首
 在《C++语言的设计和演化》（1994）中，Bjarne Stroustrup描述了他在设计C++时，所使用的一些原则。知道这些原则有助于理解C++为何会是现在这个样子。以下总结了一些原则，详尽的内容可参阅《C++语言的设计和演化》：
 
 C++设计成直接的和广泛的支持多种程序设计风格（过程化程序设计、数据抽象、面向对象编程、泛型程序设计）。
+
 C++设计成给程序设计者更多的选择，即使可能导致程序设计者选择错误。
+
 C++设计成尽可能与C兼容，借此提供一个从C到C++的平滑过渡。
+
 C++避免平台限定或没有普遍用途的特性。
+
 C++不使用会带来额外开销的特性。
+
 C++设计成无需复杂的程序设计环境。
 
 ## 标准程序库
@@ -146,12 +151,20 @@ https://zh.cppreference.com/w/cpp/language/translation_phases
 
 # 预处理器
 预处理器是在翻译阶段中的第四个阶段执行的
+
 预处理指令包括：define、undef、include、if、ifdef、ifndef、else、elif、endif、line、error、pragma、import
+
 其基本形式为'#'字符 + 预处理指令 + 参数（如果需要）+ 换行符
+
 ## 分类
 条件包含（#if、#ifdef、#ifndef、#else、#elif 和 #endif）
+
 文本替换（#define 和 #undef 指令与 # 和 ## 运算符）。
+
 错误指令 （#error）
+
 源文件包含（#include 指令控制并以 __has_include 检查 (C++17 起)）。
+
 实现定义的行为控制（由 #pragma 指令和 _Pragma 运算符 (C++11 起)控制）。
+
 文件名和行信息（#line）
