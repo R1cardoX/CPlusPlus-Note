@@ -108,11 +108,11 @@ g++ -std=c++11 helloworld.cpp -o app #这里暂时使用c11的规范进行编译
 类型可以分为基础类型和复合类型。
 
 命名一个类型
-类声明：`class Type;`
-联合体声明： `struct Type;`
-枚举声明： `enum Type;`
-typedef 声明：`typedef int my_int;`
-类型别名声明： `using my_int = int;` 
+- 类声明：`class Type;`
+- 联合体声明： `struct Type;`
+- 枚举声明： `enum Type;`
+- typedef 声明：`typedef int my_int;`
+- 类型别名声明： `using my_int = int;` 
 
 附：https://zh.cppreference.com/w/cpp/language/type
 
@@ -123,13 +123,14 @@ C++ 程序可以创建、销毁、引用、访问并操作对象。
 
 在 C++ 中，一个对象拥有这些性质：
 
-大小（可以使用 sizeof 获取）；
-对齐要求（可以使用 alignof 获取）；
-存储期（自动、静态、动态、线程局部）；
-生存期（与存储期绑定或者临时）
-类型；
-值（可能是不确定的，例如默认初始化的非类类型）；
-名字（可选）。
+- 大小（可以使用 sizeof 获取）；
+- 对齐要求（可以使用 alignof 获取）；
+- 存储期（自动、静态、动态、线程局部）；
+- 生存期（与存储期绑定或者临时）
+- 类型；
+- 值（可能是不确定的，例如默认初始化的非类类型）；
+- 名字（可选）。
+
 以下实体都不是对象：值，引用，函数，枚举项，类型，类的非静态成员，模板，类或函数模板的特化，命名空间，形参包，和 this。
 
 变量由声明所引入，是一个对象或不是对非静态数据成员的引用。
@@ -147,6 +148,7 @@ C++ 程序中出现的每个名字，只在某些可能不连续的源码部分�
 
 ## 翻译阶段
 在编译器处理C++文件时会通过9个阶段处理C++的源文件
+
 https://zh.cppreference.com/w/cpp/language/translation_phases
 
 # 预处理器
