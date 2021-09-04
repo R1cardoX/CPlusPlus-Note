@@ -242,6 +242,10 @@ __VA_ARGS__是和可变参数宏一起使用的用来访问可变参数实参
 #define func(name, a, b) func_##name(a, b) //func(max, 1, 2) -> func_max(1, 2)
 ```
 
+##### 预定义宏
+
+编译器提供的一些可以带有特殊含义的可以直接使用的宏，常用的有：__cplusplus， __FILE__， __LINE__，__FUNCTION__
+
 ### 错误指令 
 #error
 
@@ -250,6 +254,17 @@ __VA_ARGS__是和可变参数宏一起使用的用来访问可变参数实参
 
 ### 实现定义的行为控制
 #pragma 指令和 _Pragma 运算符 (C++11 起)控制
+
+#pragma once 当某个头文件中包含它时，指示编译器只对其分析一次，即使它在同一源文件中（直接或间接）被包含了多次也是如此。但因为带 #pragma once 的文件是基于其文件系统层次的身份所排除的，所以若头文件在项目中有多个位置，则这不能防止包含它两次。
+
+阻止同一头文件的多次包含的标准方式是使用包含防护：
+
+```cpp
+#ifndef LIBRARY_FILENAME_H
+#define LIBRARY_FILENAME_H
+// 头文件的内容
+#endif /* LIBRARY_FILENAME_H */
+```
 
 ### 文件名和行信息
 #line
