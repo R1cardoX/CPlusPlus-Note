@@ -268,3 +268,49 @@ __VA_ARGS__是和可变参数宏一起使用的用来访问可变参数实参
 
 ### 文件名和行信息
 #line
+
+# 表达式
+表达式是运算符和它们的操作数的序列，它指定一项计算。
+
+这里只说明C++以来新增的表达式，C语言的运算符就不赘述了。
+
+## static_cast 
+转换一个类型为另一相关类型
+
+```cpp
+double tmp = 10.5;
+int value = static_cast<int>(tmp);
+```
+
+## dynamic_cast 
+在继承层级中转换
+
+## const_cast 
+添加或移除 cv 限定符
+
+## reinterpret_cast 
+转换类型到无关类型
+
+## C 风格转型 
+以 static_cast 、 const_cast 及 reinterpret_cast 的混合转换一个类型到另一类型
+
+## new 
+创建有动态存储期的对象
+
+## delete 
+销毁先前由 new 表达式创建的对象，并释放其所拥有的内存区域
+
+## sizeof
+查询类型的大小
+
+## sizeof... 
+查询形参包的大小(C++11 起)
+
+## typeid 
+查询类型的类型信息
+
+## noexcept 
+查询表达式是否能抛出异常(C++11 起)
+
+## alignof 
+查询类型的对齐要求(C++11 起)
